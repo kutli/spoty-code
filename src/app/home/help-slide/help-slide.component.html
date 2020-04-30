@@ -1,0 +1,42 @@
+<ion-header class="ion-no-border" >
+  <ion-toolbar color="light-contrast">
+    <ion-buttons slot="end">
+      <ion-button *ngIf="hasSkip" (click)="onClick()" color="medium">
+        {{ 'HOME.HELP.SLIDE.SKIP' | translate }}
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-slides pager="true" class="slide-full" #slider (ionSlideWillChange)="doCheck()">
+
+    <ion-slide *ngFor="let slide of slides">
+
+      <ion-grid>
+        <ion-row>
+          <ion-col class="ion-justify-content-center">
+            <img [src]="slide.img">
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div class="ion-text-center">
+              <h3>{{ slide.title | translate}} </h3>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+
+    <!-- Final Slide -->
+    <ion-slide>
+      <ion-button color="primary"
+                  (click)="onClick()">
+        Start Creating Your Spotify Wave!
+      </ion-button>
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>

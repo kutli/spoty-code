@@ -1,0 +1,36 @@
+{
+    "HOME" : {
+        "GENERATE": "Generate",
+        "URL": "Spotify URL",
+        "HELP": "Need Help?",
+        "TOAST.HELP": "The Given URL is incorrect",
+        "HELP.SLIDE": {
+            "SKIP": "skip",
+            "SLIDE1.TITLE": "Slide 1 title",
+            "SLIDE1.DESC": "Slide 1 description"
+        }
+    },
+    "PERSONALIZATION": {
+        "TITLE": "Customize",
+        "RETURN": "Return",
+        "BAR.COLOR": {
+            "TITLE": "Wave Color",
+            "WHITE": "White",
+            "BLACK": "Black"
+        },
+        "SIZE": "Size",
+        "FORMAT": "Format",
+        "BACKGROUND.COLOR": "Background Color",
+        "GENERATE": "Generate",
+        "CREATE.NEW": "Enter a new Code",
+        "DIALOG": {
+            "TITLE.SELECT": "Select One",
+            "CONFIRM": "Confirm",
+            "DISMISS": "Dismiss"
+        },
+        "TOAST.MEDIA.ERROR": "Error while sharing",
+        "TOAST.CODE.ERROR": "Error, Check your internet connection",
+        "REFRESHER.TEXT": "Pull to refresh",
+        "REFRESHER.ACTIVE.TEXT": "Refreshing..."
+    }
+}

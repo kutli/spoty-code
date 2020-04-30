@@ -1,0 +1,36 @@
+{
+    "HOME" : {
+        "GENERATE": "Generar",
+        "URL": "URL de Spotify",
+        "HELP": "Necesitas Ayuda?",
+        "TOAST.HELP": "El URL es incorrecto",
+        "HELP.SLIDE": {
+            "SKIP": "Omitir",
+            "SLIDE1.TITLE": "Slide 1 titulo",
+            "SLIDE1.DESC": "Slide 1 descripción"
+        }
+    },
+    "PERSONALIZATION": {
+        "TITLE": "Personalizar",
+        "RETURN": "Regresar",
+        "BAR.COLOR": {
+            "TITLE": "Color de Onda",
+            "WHITE": "Blanco",
+            "BLACK": "Negro"
+        },
+        "SIZE": "Tamaño",
+        "FORMAT": "Formato",
+        "BACKGROUND.COLOR": "Color de Fondo",
+        "GENERATE": "Generar",
+        "CREATE.NEW": "Ingresar un Nuevo Código",
+        "DIALOG": {
+            "TITLE.SELECT": "Selecciona Uno",
+            "CONFIRM": "Confirmar",
+            "DISMISS": "Cancelar"
+        },
+        "TOAST.MEDIA.ERROR": "Error al compartir",
+        "TOAST.CODE.ERROR": "Error, Verifica tu conección a internet",
+        "REFRESHER.TEXT": "Tire para actualizar",
+        "REFRESHER.ACTIVE.TEXT": "Refrescando..."
+    }
+}

@@ -1,0 +1,134 @@
+<!-- Header -->
+<ion-header [translucent]="true" class="ion-no-border" mode="ios">
+  <ion-toolbar color="light-contrast">
+    <ion-buttons slot="start" >
+      <ion-back-button color="primary" text="Return" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{ 'PERSONALIZATION.TITLE' | translate }}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="chageLanguage($event)">
+        <ion-icon color="primary" slot="icon-only" name="ellipsis-vertical-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<!-- Content -->
+<ion-content [fullscreen]="true" class="ion-padding no-scroll">
+
+  <ion-refresher *ngIf="image"pullFactor="0.5" pullMin="100" pullMax="200" slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content 
+      pullingIcon="arrow-down-outline"
+      pullingText="{{ 'PERSONALIZATION.REFRESHER.TEXT' | translate}}"
+      refreshingText="{{ 'PERSONALIZATION.REFRESHER.ACTIVE.TEXT' | translate}}">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <!-- Fab -->
+  <ion-fab *ngIf="image" vertical="bottom" 
+            horizontal="end" 
+            slot="fixed">
+    <ion-fab-button color="primary">
+      <ion-icon color="dark" name="share-social-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="start">
+      <ion-fab-button color="facebook" (click)="share('facebook')"><ion-icon name="logo-facebook"></ion-icon></ion-fab-button>
+      <ion-fab-button color="whatsapp" (click)="share('whatsapp')"><ion-icon color="dark" name="logo-whatsapp"></ion-icon></ion-fab-button>
+      <ion-fab-button color="instagram" (click)="share('instagram')"><ion-icon name="logo-instagram"></ion-icon></ion-fab-button>
+      <ion-fab-button color="twitter" (click)="share('twitter')"><ion-icon name="logo-twitter"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+  
+  <!-- Bar Color -->
+  <ion-item>
+    <ion-label>{{ 'PERSONALIZATION.BAR.COLOR.TITLE' | translate }}</ion-label>
+    <ion-select placeholder="{{ 'PERSONALIZATION.DIALOG.TITLE.SELECT' | translate }}" 
+                okText="{{ 'PERSONALIZATION.DIALOG.CONFIRM' | translate }}" 
+                cancelText="{{ 'PERSONALIZATION.DIALOG.DISMISS' | translate }}"
+                mode="ios"
+                name="barColor"
+                [(ngModel)]="barColor"
+                required>
+      <ion-select-option value="white">{{ 'PERSONALIZATION.BAR.COLOR.WHITE' | translate }}</ion-select-option>
+      <ion-select-option value="black">{{ 'PERSONALIZATION.BAR.COLOR.BLACK' | translate }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <!-- Size -->
+  <ion-item>
+    <ion-label class="ion-text-wrap">{{ 'PERSONALIZATION.SIZE' | translate }}
+      <small>({{ size }}px)</small>
+    </ion-label>
+    <ion-range  min="256" max="2047"
+                pin="true" color="tertiary"
+                name="range"
+                color="primary"
+                [(ngModel)]="size"
+                required>
+    </ion-range>
+  </ion-item>
+
+  <!-- Format -->
+  <ion-item>
+    <ion-label>{{ 'PERSONALIZATION.FORMAT' | translate }}</ion-label>
+    <ion-select placeholder="{{ 'PERSONALIZATION.DIALOG.TITLE.SELECT' | translate }}" 
+                okText="{{ 'PERSONALIZATION.DIALOG.CONFIRM' | translate }}" 
+                cancelText="{{ 'PERSONALIZATION.DIALOG.DISMISS' | translate }}"
+                mode="ios"
+                name="format"
+                [(ngModel)]="format"
+                required>
+      <ion-select-option value="jpeg">JPEG</ion-select-option>
+      <ion-select-option value="svg">SVG</ion-select-option>
+      <ion-select-option value="png">PNG</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <!-- Background Color -->
+  <ion-item>
+    <ion-label>{{ 'PERSONALIZATION.BACKGROUND.COLOR' | translate }}</ion-label>
+    <ion-chip slot="end"
+              mode="ios"
+              [ngStyle]="{'background-color': color}"
+              (click)="openColorPicker()">
+      <ion-label>{{ color }}</ion-label>
+      <ion-icon name="color-wand-outline"></ion-icon>
+    </ion-chip>
+  </ion-item>
+
+  <!-- Generate Code -->
+  <ion-button expand="full"
+              class="ion-margin-top ion-margin-bottom"
+              type="submit"
+              color="primary"
+              [disabled]="!image"
+              [ngClass]="{'space-top': !image}"
+              (click)="onSubmit()"
+              shape="round">
+    {{ 'PERSONALIZATION.GENERATE' | translate }}
+  </ion-button>
+
+  <!-- Color picker -->
+  <input  #colorPicker [(colorPicker)]="color" 
+          [cpPosition]="'bottom'"
+          [cpWidth]="('200px')"
+          [cpDisableInput]="(true)"
+          [cpAlphaChannel]="('disabled')"
+          style="display: none;"/>
+
+  <!-- Image -->
+  <ion-img  class="animated jackInTheBox ion-align-items-center ion-margin-top" 
+    *ngIf="image" 
+    [src]='displayedImage'>
+  </ion-img>
+
+</ion-content>
+
+<!-- Footer -->
+<ion-footer class="ion-no-border" mode="ios">
+
+</ion-footer>
